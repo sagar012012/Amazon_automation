@@ -6,7 +6,7 @@
       <class name="amz.Asetup">
         <methods>
           <include name="setup"/>
-          <include name="homemage"/>
+          <include name="Testpage"/>
         </methods>
       </class> <!-- amz.Asetup -->
     </classes>

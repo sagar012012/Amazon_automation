@@ -18,21 +18,12 @@ public class Amzhomepage {
 	WebElement search;
 	@FindBy(xpath = "//input[@id='nav-search-submit-button']")
 	WebElement searchbtn;
-	@FindBy(xpath = "//span[normalize-space()='Shirt for Men, Solid Full Sleeves Shirt,"
-			+ " Wrinkle Free Mens Shirts, Cotton Formal Shirts, Regular Fit Stylish Mens Shirt, Plain Formal Shirts for Men']")
-	WebElement selectshirt;
-	public void sname(String srch)
+	void sname(String srch)
 	{
 		search.sendKeys(srch);
 		//assertEquals(true, "shirt");
-	}
-	public void sbtn()
-	{
 		searchbtn.click();
 	}
-	public void shirt()
-	{
-		selectshirt.click();
-	}
+	
 
 }

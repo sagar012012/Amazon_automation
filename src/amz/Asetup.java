@@ -11,36 +11,53 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Asetup {
 		WebDriver driver;
+		Aloginpage Aloginpage;
+		Amzhomepage Amzhomepage;
+		Addtocart Addtocart;
 		@BeforeMethod
 		void setup()
 		{
-//			WebDriverManager.chromedriver().setup();
-//		    driver = new ChromeDriver();
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar.Vishwakarma\\Chromedriver-64\\chromedriver.exe");
-			driver= new ChromeDriver();
-//			driver.get("https://saucedemo.com/");
+			WebDriverManager.chromedriver().setup();
+		    driver = new ChromeDriver();
+//			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar.Vishwakarma\\Chromedriver-64\\chromedriver.exe");
+//			driver= new ChromeDriver();
+//			driver.get("https://www.amazon.in/gp/cart/view.html?ref_=nav_cart");
 			driver.get("https://www.amazon.in/");//https://www.amazon.in/
 			driver.manage().window().maximize();
+			Aloginpage = new Aloginpage(driver);
+			Amzhomepage = new Amzhomepage(driver);
+			Addtocart  = new Addtocart(driver);
+
 			
 		}
-//		@Test(priority = 1)
-//		void testloginpage()
-//		{
-//			Aloginpage login=new Aloginpage(driver);
-//			login.clickacc();
-//			login.userid("sagarvish.009@gmail.com");
-//			login.clickbutton();
-//			login.userpass("sagar@123");
-//			login.signbutton();
-//		}
-		@Test()
-		void homemage()
+		@Test(priority = 1)
+		void Testpage()
 		{
-			Amzhomepage home= new Amzhomepage(driver);
-			home.sname("shirt");
-			home.sbtn();
-			home.shirt();
+			//Aloginpage ap = new Aloginpage(driver);
+			Aloginpage.clickSignIn();
+			Aloginpage.enterEmail("sagarvish.009@gmail.com");
+			Aloginpage.enterPassword("sagar@123");
+			
+			Amzhomepage.sname("shirt");
+			
+			Addtocart.addtocart();
+			Addtocart.addAddress();
+
 		}
+//		@Test(priority = 2)
+//		void homemage()
+//		{
+//			Amzhomepage home= new Amzhomepage(driver);
+//			home.sname("shirt");
+//			home.sbtn();
+//			home.shirt();
+//		}
+//		@Test(priority = 2)
+//		void AddtoCart()
+//		{
+//			Addtocart.addtocart();
+//			
+//		}
 //		@AfterMethod
 //		void teardown()
 //		{

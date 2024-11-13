@@ -16,35 +16,31 @@ public class Aloginpage {
 	}
 	
 	@FindBy(xpath = "//span[normalize-space()='Account & Lists']")
-	WebElement uname;
+	WebElement signInButton;
 	@FindBy(xpath = "//input[@id='ap_email']")
-	WebElement usernum;
+	WebElement emailField;
 	@FindBy(xpath = "//input[@id='continue']")
-	WebElement continuebtn;
+	WebElement continueButton;
 	@FindBy(xpath = "//input[@id='ap_password']")
-	WebElement pass;
+	WebElement passwordField;
 	@FindBy(xpath = "//input[@id='signInSubmit']")
-	WebElement signin;
+	WebElement submitLogin;
 	
-	public void clickacc()
+	public void clickSignIn()
 	{
-		uname.click();
+		signInButton.click();
 	}
-	public void userid(String uid)
+	public void enterEmail(String email)
 	{
-		usernum.sendKeys(uid);
+		emailField.sendKeys(email);
+		continueButton.click();
 	}
-	public void clickbutton()
+	
+	public void enterPassword(String password)
 	{
-		continuebtn.click();
+		passwordField.sendKeys(password);
+		submitLogin.click();
 	}
-	public void userpass(String p)
-	{
-		pass.sendKeys(p);
-	}
-	public void signbutton()
-	{
-		signin.click();
-	}
+	
 
 }
